@@ -42,11 +42,11 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     
-    - name: Build Docker image
+    - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
         context: .
-        push: false
+        push: true
         tags: |
-          python-cicd-demo:latest
-          python-cicd-demo:${{ github.sha }}
+          ${{ secrets.DOCKER_USERNAME }}/python-cicd-demo:latest
+          ${{ secrets.DOCKER_USERNAME }}/python-cicd-demo:${{ github.sha }}
