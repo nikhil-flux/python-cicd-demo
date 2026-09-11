@@ -1,6 +1,6 @@
 from flask import Flask
 
-app = Flask(Chota Flask)
+app = Flask('Chota Flask')
 
 @app.route('/')
 def hello():
